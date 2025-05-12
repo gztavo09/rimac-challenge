@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BackStep } from './BackStep';
 import * as Progress from '@radix-ui/react-progress';
 

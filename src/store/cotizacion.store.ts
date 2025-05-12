@@ -9,7 +9,9 @@ interface CotizacionState {
   planesFiltrados: Plan[];
   setUser: (user: User) => void;
   setPlanes: (planes: Plan[]) => void;
-  getPlanesFiltrados: (optionSelected: 1 | 2) => void;
+  selectedPlan: Plan | null,
+  setSelectedPlan: (plan: Plan) => void;
+  getPlanesFiltrados: (optionSelected: number) => void;
   reset: () => void;
 }
 
@@ -21,6 +23,8 @@ export const useCotizacionStore = create<CotizacionState>()(
         lastName: "",
         birthDay: ""
       },
+      selectedPlan: null,
+      setSelectedPlan: (plan) => set({ selectedPlan: plan }) ,
       planes: [],
       planesFiltrados: [],
       setUser: (user) => set({ user }),

@@ -1,4 +1,2 @@
-export * from './Header/header';
-export * from './Footer/footer';
-export * from './Input/input'
-export * from './Button/button';
+export * from './Header/Header';
+export * from './Footer/Footer';

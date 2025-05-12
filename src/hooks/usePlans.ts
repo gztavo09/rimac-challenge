@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { fetchPlanes } from '@/services';
-import { useCotizacionStore } from '@/store/cotizacion.store';
+import { fetchPlanes } from '../services';
+import { useCotizacionStore } from '../store/cotizacion.store';
 
 export const usePlans = () => {
   const [loading, setLoading] = useState(true);

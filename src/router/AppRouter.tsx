@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import CotizarPage from '@/views/cotizar/cotizar.page';
-import PlanesPage from '@/views/planes/planes.page';
-import MainLayout from '@/layouts/MainLayout';
+import CotizarPage from '../views/cotizar/cotizar.page';
+import PlanesPage from '../views/planes/planes.page';
+import MainLayout from '../layouts/MainLayout';
 
 const AppRouter = () => {
   return (

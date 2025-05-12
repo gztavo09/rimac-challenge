@@ -1,12 +1,12 @@
 import React from 'react'
-import { IconCheck } from '@/components/icons.components'
+import { IconCheck } from '../../../components/icons.components'
 
 interface Props {
   icon: string,
   title: string,
   description: string,
   value: number,
-  selectecTypePlan: (value:number) => void;
+  selectecTypePlan: (value: number) => void;
   selectedOption: number | null
 }
 

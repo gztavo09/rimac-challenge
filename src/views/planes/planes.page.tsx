@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { StepProgress, BackStep } from '@/components/ui.components/Steps';
-import { CardOption, CardSummary } from '@/components/ui.components/Cards';
+import { StepProgress, BackStep } from '../../components/ui.components/Steps';
+import { CardOption, CardSummary } from '../../components/ui.components/Cards';
 import { ListPlans } from './planes.list';
-import { usePlans } from '@/hooks';
-import { useCotizacionStore } from '@/store/cotizacion.store';
-import type { Plan } from '@/types';
+import { useCotizacionStore } from '../../store/cotizacion.store';
+import type { Plan } from '../../types';
 
 const PlanesPage: React.FC = () => {
-  const [step, setStep] = useState<1 | 2>(1);
-  const [selectedOption, setSelectedOption] = useState<1 | 2>(1);
+  const [step, setStep] = useState<number>(1);
+  const [selectedOption, setSelectedOption] = useState<number>(1);
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
   const { user  } = useCotizacionStore();
   const navigate = useNavigate();
@@ -18,8 +17,12 @@ const PlanesPage: React.FC = () => {
 
   const handleBackLogin = () => navigate('/');
 
-  const handleOptionSelect = (value: 1 | 2) => {
+  const handleOptionSelect = (value: number) => {
     setSelectedOption(value);
+  };
+
+  const handleControlStep = (value: number) => {
+    setStep(value as 1 | 2); // Aseguramos que el valor sea 1 o 2
   };
 
   const handlePlanSelect = (plan: Plan) => {
@@ -44,10 +47,10 @@ const PlanesPage: React.FC = () => {
 
   return (
     <>
-      <StepProgress backLogin={handleBackLogin} controlStep={setStep} step={step} />
+      <StepProgress backLogin={handleBackLogin} controlStep={handleControlStep} step={step} />
       <div className="w-full max-w-[976px] justify-center items-center flex flex-col px-6 m-auto transition mt-8">
       <div className="hidden md:flex mb-8 w-full  flex-row items-start">
-        <BackStep backLogin={handleBackLogin} controlStep={setStep} step={step} />
+        <BackStep backLogin={handleBackLogin} controlStep={handleControlStep} step={step} />
       </div>
       {step === 1 && (
         <section className="w-full  mx-auto transition">

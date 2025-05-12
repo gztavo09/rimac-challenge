@@ -1,4 +1,3 @@
-import React from 'react'
 import LogoAlter from '@/assets/logo_alter.svg'
 
 export const Footer = () => {

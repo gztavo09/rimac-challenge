@@ -1,22 +1,21 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
-import { CardPlan } from '@/components/ui.components/Cards';
-import type { Plan } from '@/types';
-import { usePlans } from '@/hooks';
+import { CardPlan } from '../../components/ui.components/Cards';
+import type { Plan } from '../../types';
+import { usePlans } from '../../hooks';
 
 import 'react-multi-carousel/lib/styles.css';
 import { useCotizacionStore } from '../../store/cotizacion.store';
-import { filterAndFormatPlans } from '../../utils/filterAndFormatPlans';
 
 interface Props {
   onSelectPlan: (plan: Plan) => void;
-  selectedOption: 1 | 2;
+  selectedOption: number;
 }
 
 export const ListPlans = ({ onSelectPlan, selectedOption }: Props) => {
 
   const { getPlanesFiltrados, planesFiltrados } = useCotizacionStore();
-  const { loading } = usePlans(selectedOption);
+  const { loading } = usePlans();
 
   useEffect(() => {
     getPlanesFiltrados(selectedOption)
@@ -47,8 +46,8 @@ export const ListPlans = ({ onSelectPlan, selectedOption }: Props) => {
               : []
           }
         >
-          {planesFiltrados.map((plan: { name: any; }) => (
-            <CardPlan key={plan.name} data={plan} nextSummary={() => onSelectPlan(plan)} />
+          {planesFiltrados.map((plan: Plan) => (
+            <CardPlan key={plan.name} data={plan} onPlanSelected={onSelectPlan} />
           ))}
         </Carousel>
       )}

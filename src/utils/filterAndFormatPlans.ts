@@ -1,10 +1,10 @@
-import type { Plan } from '@/types';
+import type { Plan } from '../types';
 import { getAgeFromBirthDate } from './getAgeFromBirthDate';
 
 export const filterAndFormatPlans = (
   plans: Plan[],
   userBirthDay: string,
-  selectedOption: 1 | 2
+  selectedOption: number
 ): Plan[] => {
     const userAge = getAgeFromBirthDate(userBirthDay);
     const filtered = plans.filter((plan) => plan.age <= userAge);

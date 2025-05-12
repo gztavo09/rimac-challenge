@@ -3,7 +3,7 @@ import './cotizar.style.scss';
 import ImageFamily from '@/assets/rimac_family.png'
 import { CotizarForm } from './cotizar.form';
 
-const CotizarPage = () => {
+const CotizarPage:React.FC = () => {
     return (
 		<>
 			<div className="">

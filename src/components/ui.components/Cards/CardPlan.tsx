@@ -1,18 +1,16 @@
-import React from 'react'
-import type { Plan, User } from '@/types'
-import { IconPlanHouse } from '@/components/icons.components'
+import type { Plan } from '../../../types'
+import { IconPlanHouse } from '../../../components/icons.components'
 
 interface Props {
   data: Plan,
-  user: User
-  nextSummary: (value:number, data:Plan) => void;
+  onPlanSelected: (data: Plan) => void;
 }
 
-export const CardPlan = ({data, nextSummary}: Props) => {
+export const CardPlan = ({data, onPlanSelected}: Props) => {
   return (
     <>
       <div className='card--box-shadow ease duration-200 w-[288px] rounded-xl min-h-1 cursor-pointer px-8 py-10 relative h-full flex flex-col justify-betwee'
-        onClick={() => nextSummary(2, data)}
+        onClick={() => onPlanSelected(data)}
       > 
         <div>
           <div className='flex justify-between gap-4'>

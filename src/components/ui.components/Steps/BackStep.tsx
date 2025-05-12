@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconBack } from '@/components/icons.components';
+import { IconBack } from '../../../components/icons.components';
 
 interface Props {
   step: number,

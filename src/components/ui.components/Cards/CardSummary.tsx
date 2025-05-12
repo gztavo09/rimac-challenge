@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Plan } from '@/types';
-import { IconUsers } from '@/components/icons.components';
+import type { Plan } from '../../../types';
+import { IconUsers } from '../../../components/icons.components';
 
 interface Props {
   name: string | null,
@@ -27,8 +27,8 @@ export const CardSummary:React.FC<Props> = ({name, lastName, plan}) => {
 				</div>
 				<div className='flex flex-col gap-1'>
 					<b className='text-[16px]'>Plan elegido</b>
-					<span className='text-[14px]'>{plan.name}</span>
-					<span className='text-[14px]'>Costo del Plan: ${plan.price} al mes</span>
+					<span className='text-[14px]'>{plan?.name}</span>
+					<span className='text-[14px]'>Costo del Plan: ${plan?.price} al mes</span>
 				</div>
 			</div>
 		</div>
