@@ -5,15 +5,15 @@ import MainLayout from '../layouts/MainLayout';
 
 const AppRouter = () => {
   return (
-    <MainLayout>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<CotizarPage />} />
-        <Route path="/planes" element={<PlanesPage />} />
-        {/* puedes agregar una página 404 luego */}
-      </Routes>
+      <MainLayout>
+        <Routes>
+          <Route path="/" element={<CotizarPage />} />
+          <Route path="/planes" element={<PlanesPage />} />
+          {/*  agregar una página 404 luego */}
+        </Routes>
+      </MainLayout>
     </BrowserRouter>
-    </MainLayout>
   );
 };
 
