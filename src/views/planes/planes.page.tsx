@@ -9,7 +9,7 @@ import type { Plan } from '../../types';
 
 const PlanesPage: React.FC = () => {
   const [step, setStep] = useState<number>(1);
-  const [selectedOption, setSelectedOption] = useState<number>(1);
+  const [selectedOption, setSelectedOption] = useState<number>(0);
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
   const { user  } = useCotizacionStore();
   const navigate = useNavigate();
@@ -71,10 +71,15 @@ const PlanesPage: React.FC = () => {
               />
             ))}
           </div>
-          <ListPlans
-            selectedOption={selectedOption}
-            onSelectPlan={handlePlanSelect}
-          />
+          {
+            selectedOption !== 0 && (
+              <ListPlans
+                selectedOption={selectedOption}
+                onSelectPlan={handlePlanSelect}
+              />
+            )
+          }
+          
         </section>
       )}
 
