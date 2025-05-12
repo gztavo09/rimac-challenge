@@ -1,0 +1,59 @@
+.checkbox-container {
+  margin-bottom: 12px;
+  input {
+    display: none;
+    cursor: pointer;
+
+    &:checked + label {
+      &::before {
+        background-color: #0A051E; // fondo negro cuando está marcado
+        border-color: #0A051E;
+      }
+      &::after {
+        opacity: 1; // se muestra el check
+      }
+    }
+  }
+
+  label {
+    display: flex;
+    font-size: 12px;
+    color: #0A051E;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 4px;
+
+    a {
+      color: #0A051E;
+      text-decoration: underline;
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      margin: 2px 6px 0 0;
+      padding: 6px;
+      border: 2px solid #0A051E;
+      border-radius: 3px;
+      background-color: #fff; // ✅ fondo blanco por defecto
+      position: relative;
+      top: -1px;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 4px;
+      width: 3px;
+      height: 8px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
+}
